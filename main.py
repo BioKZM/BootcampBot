@@ -2,8 +2,7 @@ import disnake
 import json
 from disnake.ext import commands,tasks
 from disnake.utils import get
-# TOKEN = os.environ['TOKEN']
-TOKEN = "MTEyNzQxNDE5NTY4MDQ2NDkwNg.Gw33q4.gR5YCTOi653LlO83OmAHb6wmpHRBql7l0hw9Jc"
+
 client = commands.Bot(command_prefix="!",intents=disnake.Intents.all(),help_command=None, case_insensitive=True, sync_commands=True)
 
 
@@ -15,10 +14,8 @@ async def on_ready():
 async def startLoop():
 
     stageChannel = client.get_channel(1111085609436581959)
-    # print(stageChannel.members)
     with open("time.json","r",encoding="utf-8") as file:
         data = json.load(file)
-    # data['']
     for member in stageChannel.members:
         data[f"{member.name}"] += 1
 
